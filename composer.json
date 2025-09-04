@@ -1,0 +1,64 @@
+{
+    "name": "panicdevs/modules",
+    "description": "Super light-weight Modular approach with no over-head for laravel.",
+    "type": "library",
+    "keywords": [
+        "laravel",
+        "modules",
+        "discovery",
+        "nwidart",
+        "modular",
+        "panicdevs"
+    ],
+    "homepage": "https://github.com/panicdevs/modules",
+    "readme": "README.md",
+    "support": {
+        "issues": "https://github.com/panicdevs/modules/issues",
+        "security": "https://github.com/panicdevs/modules/security/advisories",
+        "source": "https://github.com/panicdevs/modules",
+        "docs": "https://github.com/panicdevs/modules#readme"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/panicdevs"
+        }
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Armin Hooshmand",
+            "email": "NotifyHex@panicdevs.agency",
+            "homepage": "https://github.com/RealMrHex",
+            "role": "Developer"
+        },
+        {
+            "name": "PanicDevs",
+            "email": "hello@panicdevs.agency",
+            "homepage": "https://panicdevs.agency",
+            "role": "Organization"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "laravel/framework": ">=10",
+        "wikimedia/composer-merge-plugin": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "PanicDevs\\Modules\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PanicDevs\\Modules\\Providers\\ModulesServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
