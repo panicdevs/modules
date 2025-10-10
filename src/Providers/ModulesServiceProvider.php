@@ -32,6 +32,9 @@ class ModulesServiceProvider extends ServiceProvider
         $this->app->singleton(ModuleService::class, fn ($app): ModuleService
         => new ModuleService($app->make(ManifestBuilder::class)));
 
+        // Bind 'modules' alias for app('modules') access
+        $this->app->alias(ModuleService::class, 'modules');
+
         // Don't register autoloading here - defer to boot phase
     }
 

@@ -52,6 +52,22 @@ class ModuleService
     }
 
     /**
+     * Get a specific module by name or throw an exception if not found
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function findOrFail(string $name): array
+    {
+        $module = $this->find($name);
+        
+        if (null === $module) {
+            throw new \InvalidArgumentException("Module '{$name}' not found.");
+        }
+        
+        return $module;
+    }
+
+    /**
      * Check if a module exists and is enabled
      */
     public function isEnabled(string $name): bool
