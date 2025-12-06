@@ -145,22 +145,22 @@ class ModulesServiceProvider extends ServiceProvider
      */
     protected function loadProvidersForModule(array $module): void
     {
-        // Load providers from module.json first (explicit providers)
-        foreach ($module['providers'] ?? [] as $providerClass)
-        {
-            if (class_exists($providerClass))
-            {
-                $this->app->register($providerClass);
-            }
-        }
-
-        // Load files from module.json (helper files, etc.)
+        // 1. Load files FIRST (helper files, etc.)
         foreach ($module['files'] ?? [] as $file)
         {
             $filePath = $module['path'].'/'.mb_ltrim($file, '/');
             if (file_exists($filePath))
             {
                 require_once $filePath;
+            }
+        }
+
+        // 2. Load providers SECOND
+        foreach ($module['providers'] ?? [] as $providerClass)
+        {
+            if (class_exists($providerClass))
+            {
+                $this->app->register($providerClass);
             }
         }
 
